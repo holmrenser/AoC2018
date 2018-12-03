@@ -1,0 +1,19 @@
+{
+  "name": "aoc2018",
+  "version": "1.0.0",
+  "description": "AoC2018",
+  "main": "_",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holmrenser/AoC2018.git"
+  },
+  "author": "holmrenser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/holmrenser/AoC2018/issues"
+  },
+  "homepage": "https://github.com/holmrenser/AoC2018#readme"
+}
