@@ -28,6 +28,5 @@ fs.readFile('./2.input', (err, data) => {
       return acc
     }, frequency)
     seenFrequencies.add(frequency)
-    // frequency = newFrequency
   }
 })
