@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('./1.input', (err, data) => {
+fs.readFile('./1_1.input', (err, data) => {
   const frequency = data.toString('utf8').split('\n').reduce((acc, val) => {
     const sign = val[0];
     const magnitude = parseInt(val.slice(1));

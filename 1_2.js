@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('./2.input', (err, data) => {
+fs.readFile('./1_2.input', (err, data) => {
   let foundDuplicate = false;
   let frequency = 0;
   const seenFrequencies = new Set();
