@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const { range } = require('./util.js');
+
 class Patch {
   constructor(line){
     this.line = line;
@@ -22,62 +24,10 @@ class Patch {
   }
 }
 
-function xOverlap(patch1, patch2) {
-  if (patch1.x_start < patch2.x_start) {
-    return {
-      x_diff: patch1.x_end - patch2.x_start,
-      x_start: patch2.x_start,
-      x_end: patch1.x_end
-    }
-  } else {
-    return {
-      x_diff: patch2.x_end - patch1.x_start,
-      x_start: patch1.x_start,
-      x_end: patch2.x_end
-    }
-  }
-}
-
-function yOverlap(patch1, patch2) {
-  if (patch1.y_start < patch2.y_start) {
-    return {
-      y_diff: patch1.y_end - patch2.y_start,
-      y_start: patch2.y_start,
-      y_end: patch1.y_end
-    }
-  } else {
-    return {
-      y_diff: patch2.y_end - patch1.y_start,
-      y_start: patch1.y_start,
-      y_end: patch2.y_end
-    }
-  }
-}
-
-function range(size, startAt = 0) {
-  return [...Array(size).keys()].map(i => i + startAt);
-}
-
 fs.readFile('./3_2.input', (err,dat) => {
   const lines = dat.toString('utf8').split('\n');
   const patches = lines.map(line => new Patch(line));
-  /*patches.forEach((patch1, i) => {
-    const matches = patches.map(patch2 => {
-      const { x_diff, x_start, x_end } = xOverlap(patch1, patch2);
-      const { y_diff, y_start, y_end } = yOverlap(patch1, patch2);
-      if (x_diff <= 0 && y_diff <= 0){
-        return true
-      } else {
-        return false
-      }
-    })
-    const nonOverlapping = matches.filter(m => m)
-    console.log(`${nonOverlapping.length}`)
-    if (nonOverlapping.length === matches.length) {
-      console.log(patch1)
-    }
-  })
-  //console.log(overlaps.size)*/
+
   coords = patches.reduce((acc, patch) => {
     range(patch.x_size, patch.x_start).forEach(x => {
       range(patch.y_size, patch.y_start).forEach(y => {

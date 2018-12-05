@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const { range } = require('./util.js');
+
 class Patch {
   constructor(line){
     this.line = line;
@@ -54,9 +56,7 @@ function yOverlap(patch1, patch2) {
   }
 }
 
-function range(size, startAt = 0) {
-  return [...Array(size).keys()].map(i => i + startAt);
-}
+
 
 fs.readFile('./3_1.input', (err,dat) => {
   const lines = dat.toString('utf8').split('\n');
